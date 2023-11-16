@@ -1,11 +1,11 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import 'package:e_commerce_flutter/core/app_color.dart';
-import 'package:e_commerce_flutter/src/model/product.dart';
+import 'package:e_commerce/core/app_color.dart';
+import 'package:e_commerce/src/model/product.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:e_commerce_flutter/src/view/widget/page_wrapper.dart';
-import 'package:e_commerce_flutter/src/view/widget/carousel_slider.dart';
-import 'package:e_commerce_flutter/src/controller/product_controller.dart';
+import 'package:e_commerce/src/view/widget/page_wrapper.dart';
+import 'package:e_commerce/src/view/widget/carousel_slider.dart';
+import 'package:e_commerce/src/controller/product_controller.dart';
 
 final ProductController controller = Get.put(ProductController());
 

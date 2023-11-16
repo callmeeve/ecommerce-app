@@ -1,12 +1,12 @@
-import 'package:e_commerce_flutter/src/view/widget/page_wrapper.dart';
+import 'package:e_commerce/src/view/widget/page_wrapper.dart';
 import 'package:flutter/material.dart';
 import 'package:animations/animations.dart';
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
-import 'package:e_commerce_flutter/core/app_data.dart';
-import 'package:e_commerce_flutter/src/view/screen/cart_screen.dart';
-import 'package:e_commerce_flutter/src/view/screen/profile_screen.dart';
-import 'package:e_commerce_flutter/src/view/screen/favorite_screen.dart';
-import 'package:e_commerce_flutter/src/view/screen/product_list_screen.dart';
+import 'package:e_commerce/core/app_data.dart';
+import 'package:e_commerce/src/view/screen/cart_screen.dart';
+import 'package:e_commerce/src/view/screen/profile_screen.dart';
+import 'package:e_commerce/src/view/screen/favorite_screen.dart';
+import 'package:e_commerce/src/view/screen/product_list_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);

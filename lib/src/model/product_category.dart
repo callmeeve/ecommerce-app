@@ -1,4 +1,4 @@
-import 'package:e_commerce_flutter/src/model/product.dart';
+import 'package:e_commerce/src/model/product.dart';
 import 'package:flutter/material.dart' show IconData;
 
 class ProductCategory {
