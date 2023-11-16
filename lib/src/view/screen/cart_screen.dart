@@ -108,7 +108,7 @@ class CartScreen extends StatelessWidget {
                             controller.decreaseItemQuantity(product),
                         icon: const Icon(
                           Icons.remove,
-                          color: Color(0xFFEC6813),
+                          color: Color(0xFF1750ac),
                         ),
                       ),
                       GetBuilder<ProductController>(
@@ -131,7 +131,7 @@ class CartScreen extends StatelessWidget {
                         splashRadius: 10.0,
                         onPressed: () =>
                             controller.increaseItemQuantity(product),
-                        icon: const Icon(Icons.add, color: Color(0xFFEC6813)),
+                        icon: const Icon(Icons.add, color: Color(0xFF1750ac)),
                       ),
                     ],
                   ),
@@ -164,7 +164,7 @@ class CartScreen extends StatelessWidget {
                   style: const TextStyle(
                     fontSize: 25,
                     fontWeight: FontWeight.w900,
-                    color: Color(0xFFEC6813),
+                    color: Color(0xFF1750ac),
                   ),
                 ),
               );

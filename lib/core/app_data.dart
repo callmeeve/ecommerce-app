@@ -214,25 +214,25 @@ class AppData {
     BottomNavyBarItem(
       "Home",
       const Icon(Icons.home),
-      const Color(0xFFEC6813),
+      const Color(0xFF1750ac),
       Colors.grey,
     ),
     BottomNavyBarItem(
       "Favorite",
       const Icon(Icons.favorite),
-      const Color(0xFFEC6813),
+      const Color(0xFF1750ac),
       Colors.grey,
     ),
     BottomNavyBarItem(
       "Cart",
       const Icon(Icons.shopping_cart),
-      const Color(0xFFEC6813),
+      const Color(0xFF1750ac),
       Colors.grey,
     ),
     BottomNavyBarItem(
       "Profile",
       const Icon(Icons.person),
-      const Color(0xFFEC6813),
+      const Color(0xFF1750ac),
       Colors.grey,
     ),
   ];

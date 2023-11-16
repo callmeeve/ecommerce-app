@@ -76,7 +76,7 @@ class ProductDetailScreen extends StatelessWidget {
             decoration: BoxDecoration(
               color: controller.sizeType(product)[index].isSelected == false
                   ? Colors.white
-                  : AppColor.lightOrange,
+                  : AppColor.secondary,
               borderRadius: BorderRadius.circular(10),
               border: Border.all(color: Colors.grey, width: 0.4),
             ),
@@ -170,6 +170,9 @@ class ProductDetailScreen extends StatelessWidget {
                       SizedBox(
                         width: double.infinity,
                         child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: AppColor.primary,
+                          ),
                           onPressed: product.isAvailable
                               ? () => controller.addToCart(product)
                               : null,

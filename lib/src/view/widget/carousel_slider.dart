@@ -41,7 +41,7 @@ class _CarouselSliderState extends State<CarouselSlider> {
         AnimatedSmoothIndicator(
           effect: const WormEffect(
             dotColor: Colors.white,
-            activeDotColor: AppColor.darkOrange,
+            activeDotColor: AppColor.primary,
           ),
           count: widget.items.length,
           activeIndex: newIndex,

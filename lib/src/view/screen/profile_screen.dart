@@ -1,3 +1,4 @@
+import 'package:e_commerce/core/app_color.dart';
 import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -74,7 +75,7 @@ class ProfileMenu extends StatelessWidget {
         bottom: 15.0,
       ),
       decoration: BoxDecoration(
-        color: Colors.grey[200]?.withOpacity(0.6),
+        color: AppColor.secondary.withOpacity(0.5),
         borderRadius: BorderRadius.circular(
           10.0,
         ),
@@ -100,7 +101,7 @@ class ProfileMenu extends StatelessWidget {
               Text(
                 subtitle,
                 style: const TextStyle(
-                  color: Colors.orange,
+                  color: Colors.black87,
                   letterSpacing: 0.5,
                   fontWeight: FontWeight.w600,
                 ),
@@ -112,7 +113,7 @@ class ProfileMenu extends StatelessWidget {
             height: 30,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(50.0),
-              color: Colors.orange,
+              color: AppColor.primary,
               boxShadow: [
                 BoxShadow(
                   color: Colors.grey.withOpacity(0.5),
