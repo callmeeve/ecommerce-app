@@ -1,3 +1,4 @@
+import 'package:e_commerce_flutter/src/view/screen/payment_screen.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:e_commerce_flutter/core/extensions.dart';
@@ -14,7 +15,7 @@ class CartScreen extends StatelessWidget {
   PreferredSizeWidget _appBar(BuildContext context) {
     return AppBar(
       title: Text(
-        "My cart",
+        "Cart",
         style: Theme.of(context).textTheme.displayLarge,
       ),
     );
@@ -174,14 +175,23 @@ class CartScreen extends StatelessWidget {
     );
   }
 
-  Widget bottomBarButton() {
+  Widget bottomBarButton(context) {
     return SizedBox(
       width: double.infinity,
       child: Padding(
         padding: const EdgeInsets.only(left: 30, right: 30, bottom: 20),
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(padding: const EdgeInsets.all(20)),
-          onPressed: controller.isEmptyCart ? null : () {},
+          onPressed: controller.isEmptyCart
+              ? null
+              : () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const PaymentScreen(),
+                    ),
+                  );
+                },
           child: const Text("Buy Now"),
         ),
       ),
@@ -200,7 +210,9 @@ class CartScreen extends StatelessWidget {
             child: !controller.isEmptyCart ? cartList() : const EmptyCart(),
           ),
           bottomBarTitle(),
-          bottomBarButton()
+          bottomBarButton(
+            context,
+          )
         ],
       ),
     );

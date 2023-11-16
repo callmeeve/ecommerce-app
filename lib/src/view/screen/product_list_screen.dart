@@ -14,23 +14,56 @@ class ProductListScreen extends StatelessWidget {
   const ProductListScreen({Key? key}) : super(key: key);
 
   Widget appBarActionButton(AppbarActionType type) {
-    IconData icon = Icons.ac_unit_outlined;
-
     if (type == AppbarActionType.trailing) {
-      icon = Icons.search;
+      return Padding(
+        padding: const EdgeInsets.only(
+          top: 12.0,
+        ),
+        child: IconButton(
+          onPressed: () {},
+          icon: const Icon(
+            Icons.notifications,
+            color: Colors.black,
+          ),
+        ),
+      );
     }
 
-    return Container(
-      margin: const EdgeInsets.all(8),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: AppColor.lightGrey,
+    return const Padding(
+      padding: EdgeInsets.only(
+        left: 12.0,
+        top: 12.0,
       ),
-      child: IconButton(
-        padding: const EdgeInsets.all(8),
-        constraints: const BoxConstraints(),
-        onPressed: () {},
-        icon: Icon(icon, color: Colors.black),
+      child: Row(
+        children: [
+          CircleAvatar(
+            backgroundImage: NetworkImage(
+              "https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            ),
+          ),
+          SizedBox(width: 10),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                "Haloo, Ady",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 18,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+              Text(
+                "Mari belanja sekarang",
+                style: TextStyle(
+                  color: Colors.grey,
+                  fontSize: 14,
+                ),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
@@ -125,27 +158,17 @@ class ProductListScreen extends StatelessWidget {
   }
 
   Widget _topCategoriesHeader(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 10),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            "Top categories",
-            style: Theme.of(context).textTheme.headlineMedium,
-          ),
-          TextButton(
-            onPressed: () {},
-            style: TextButton.styleFrom(foregroundColor: AppColor.darkOrange),
-            child: Text(
-              "SEE ALL",
-              style: Theme.of(context)
-                  .textTheme
-                  .titleLarge
-                  ?.copyWith(color: Colors.deepOrange.withOpacity(0.7)),
-            ),
-          )
-        ],
+    return const Padding(
+      padding: EdgeInsets.only(
+        top: 10,
+        bottom: 15,
+      ),
+      child: Text(
+        "Top Categories",
+        style: TextStyle(
+          fontSize: 18,
+          fontWeight: FontWeight.bold,
+        ),
       ),
     );
   }
@@ -172,14 +195,6 @@ class ProductListScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  "Hello Sina",
-                  style: Theme.of(context).textTheme.displayLarge,
-                ),
-                Text(
-                  "Lets gets somethings?",
-                  style: Theme.of(context).textTheme.headlineSmall,
-                ),
                 _recommendedProductListView(context),
                 _topCategoriesHeader(context),
                 _topCategoriesListView(),

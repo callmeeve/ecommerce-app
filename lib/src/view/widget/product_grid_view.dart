@@ -54,7 +54,7 @@ class ProductGridView extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(15),
       decoration: BoxDecoration(
-        color: const Color(0xFFE5E6E8),
+        color: Colors.white,
         borderRadius: BorderRadius.circular(20),
       ),
       child: Image.asset(product.images[0], scale: 3),
