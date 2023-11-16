@@ -1,3 +1,4 @@
+import 'package:e_commerce/core/app_color.dart';
 import 'package:flutter/material.dart';
 
 class PaymentScreen extends StatelessWidget {
@@ -45,9 +46,18 @@ class PaymentScreen extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 30, right: 30, bottom: 20),
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.all(20)),
+                    padding: const EdgeInsets.all(20),
+                    backgroundColor: AppColor.primary,
+                  ),
                   onPressed: () {},
-                  child: const Text("Confirm"),
+                  child: const Text(
+                    "Confirm",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
               ),
             ),

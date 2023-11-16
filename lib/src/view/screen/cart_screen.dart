@@ -1,3 +1,4 @@
+import 'package:e_commerce/core/app_color.dart';
 import 'package:e_commerce/src/view/screen/payment_screen.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
@@ -181,7 +182,10 @@ class CartScreen extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.only(left: 30, right: 30, bottom: 20),
         child: ElevatedButton(
-          style: ElevatedButton.styleFrom(padding: const EdgeInsets.all(20)),
+          style: ElevatedButton.styleFrom(
+            padding: const EdgeInsets.all(20),
+            backgroundColor: AppColor.primary,
+          ),
           onPressed: controller.isEmptyCart
               ? null
               : () {
@@ -192,7 +196,14 @@ class CartScreen extends StatelessWidget {
                     ),
                   );
                 },
-          child: const Text("Buy Now"),
+          child: const Text(
+            "Buy Now",
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
+          ),
         ),
       ),
     );
