@@ -1,10 +1,9 @@
 import 'package:e_commerce/src/model/product.dart';
-import 'package:flutter/material.dart' show IconData;
 
 class ProductCategory {
   ProductType type;
   bool isSelected;
-  IconData icon;
+  String name;
 
-  ProductCategory(this.type, this.isSelected, this.icon);
+  ProductCategory(this.type, this.isSelected, this.name);
 }

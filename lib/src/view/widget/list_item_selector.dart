@@ -24,7 +24,7 @@ class _ListItemSelectorState extends State<ListItemSelector> {
       child: AnimatedContainer(
         margin: const EdgeInsets.only(left: 5),
         duration: const Duration(milliseconds: 500),
-        width: 50,
+        width: 120,
         height: 100,
         decoration: BoxDecoration(
           color: item.isSelected == false
@@ -32,15 +32,8 @@ class _ListItemSelectorState extends State<ListItemSelector> {
               : const Color(0xFF1750ac),
           borderRadius: BorderRadius.circular(10),
         ),
-        child: IconButton(
-          splashRadius: 0.1,
-          icon: FaIcon(
-            item.icon,
-            color: item.isSelected == false
-                ? const Color(0xFFA6A3A0)
-                : Colors.white,
-          ),
-          onPressed: () {
+        child: GestureDetector(
+          onTap: () {
             widget.onItemPressed(index);
             for (var element in widget.categories) {
               element.isSelected = false;
@@ -49,6 +42,17 @@ class _ListItemSelectorState extends State<ListItemSelector> {
             item.isSelected = true;
             setState(() {});
           },
+          child: Center(
+            child: Text(
+              item.name,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: item.isSelected == false
+                    ? const Color(0xFFA6A3A0)
+                    : Colors.white,
+              ),
+            ),
+          ),
         ),
       ),
     );

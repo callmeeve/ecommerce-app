@@ -36,7 +36,11 @@ class ProductDetailScreen extends StatelessWidget {
           bottomLeft: Radius.circular(200),
         ),
       ),
-      child: CarouselSlider(items: product.images),
+      // child: CarouselSlider(items: product.images),
+      child: Image.asset(
+        product.images,
+        fit: BoxFit.cover,
+      ),
     );
   }
 
@@ -62,39 +66,39 @@ class ProductDetailScreen extends StatelessWidget {
     );
   }
 
-  Widget productSizesListView() {
-    return ListView.builder(
-      scrollDirection: Axis.horizontal,
-      itemCount: controller.sizeType(product).length,
-      itemBuilder: (_, index) {
-        return InkWell(
-          onTap: () => controller.switchBetweenProductSizes(product, index),
-          child: AnimatedContainer(
-            margin: const EdgeInsets.only(right: 5, left: 5),
-            alignment: Alignment.center,
-            width: controller.isNominal(product) ? 40 : 70,
-            decoration: BoxDecoration(
-              color: controller.sizeType(product)[index].isSelected == false
-                  ? Colors.white
-                  : AppColor.secondary,
-              borderRadius: BorderRadius.circular(10),
-              border: Border.all(color: Colors.grey, width: 0.4),
-            ),
-            duration: const Duration(milliseconds: 300),
-            child: FittedBox(
-              child: Text(
-                controller.sizeType(product)[index].numerical,
-                style: const TextStyle(
-                  fontWeight: FontWeight.w500,
-                  fontSize: 15,
-                ),
-              ),
-            ),
-          ),
-        );
-      },
-    );
-  }
+  // Widget productSizesListView() {
+  //   return ListView.builder(
+  //     scrollDirection: Axis.horizontal,
+  //     itemCount: controller.sizeType(product).length,
+  //     itemBuilder: (_, index) {
+  //       return InkWell(
+  //         onTap: () => controller.switchBetweenProductSizes(product, index),
+  //         child: AnimatedContainer(
+  //           margin: const EdgeInsets.only(right: 5, left: 5),
+  //           alignment: Alignment.center,
+  //           width: controller.isNominal(product) ? 40 : 70,
+  //           decoration: BoxDecoration(
+  //             color: controller.sizeType(product)[index].isSelected == false
+  //                 ? Colors.white
+  //                 : AppColor.secondary,
+  //             borderRadius: BorderRadius.circular(10),
+  //             border: Border.all(color: Colors.grey, width: 0.4),
+  //           ),
+  //           duration: const Duration(milliseconds: 300),
+  //           child: FittedBox(
+  //             child: Text(
+  //               controller.sizeType(product)[index].numerical,
+  //               style: const TextStyle(
+  //                 fontWeight: FontWeight.w500,
+  //                 fontSize: 15,
+  //               ),
+  //             ),
+  //           ),
+  //         ),
+  //       );
+  //     },
+  //   );
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -127,15 +131,15 @@ class ProductDetailScreen extends StatelessWidget {
                         children: [
                           Text(
                             product.off != null
-                                ? "\$${product.off}"
-                                : "\$${product.price}",
+                                ? "Rp${product.off}"
+                                : "Rp${product.price}",
                             style: Theme.of(context).textTheme.displayLarge,
                           ),
                           const SizedBox(width: 3),
                           Visibility(
                             visible: product.off != null ? true : false,
                             child: Text(
-                              "\$${product.price}",
+                              "Rp${product.price}",
                               style: const TextStyle(
                                 decoration: TextDecoration.lineThrough,
                                 color: Colors.grey,
@@ -160,13 +164,13 @@ class ProductDetailScreen extends StatelessWidget {
                       const SizedBox(height: 10),
                       Text(product.about),
                       const SizedBox(height: 20),
-                      SizedBox(
-                        height: 40,
-                        child: GetBuilder<ProductController>(
-                          builder: (_) => productSizesListView(),
-                        ),
-                      ),
-                      const SizedBox(height: 20),
+                      // SizedBox(
+                      //   height: 40,
+                      //   child: GetBuilder<ProductController>(
+                      //     builder: (_) => productSizesListView(),
+                      //   ),
+                      // ),
+                      // const SizedBox(height: 20),
                       SizedBox(
                         width: double.infinity,
                         child: ElevatedButton(
@@ -174,7 +178,7 @@ class ProductDetailScreen extends StatelessWidget {
                             backgroundColor: AppColor.primary,
                           ),
                           onPressed: product.isAvailable
-                              ? () => controller.addToCart(product)
+                              ? () => controller.addToCart(product, context)
                               : null,
                           child: const Text("Add to cart"),
                         ),

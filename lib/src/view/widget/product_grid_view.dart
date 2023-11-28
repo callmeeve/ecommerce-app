@@ -57,7 +57,7 @@ class ProductGridView extends StatelessWidget {
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
       ),
-      child: Image.asset(product.images[0], scale: 3),
+      child: Image.asset(product.images, scale: 3),
     );
   }
 
@@ -94,19 +94,24 @@ class ProductGridView extends StatelessWidget {
               children: [
                 Text(
                   product.off != null
-                      ? "\$${product.off}"
-                      : "\$${product.price}",
-                  style: Theme.of(context).textTheme.headlineMedium,
+                      ? "Rp${product.off}"
+                      : "Rp${product.price}",
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    color: product.off != null ? Colors.black : null,
+                    fontSize: 12,
+                  ),
                 ),
                 const SizedBox(width: 3),
                 Visibility(
                   visible: product.off != null ? true : false,
                   child: Text(
-                    "\$${product.price}",
+                    "Rp${product.price}",
                     style: const TextStyle(
                       decoration: TextDecoration.lineThrough,
                       color: Colors.grey,
                       fontWeight: FontWeight.w500,
+                      fontSize: 10,
                     ),
                   ),
                 )
@@ -121,7 +126,9 @@ class ProductGridView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 20),
+      padding: const EdgeInsets.only(
+        top: 20,
+      ),
       child: GridView.builder(
         itemCount: items.length,
         shrinkWrap: true,
@@ -136,10 +143,13 @@ class ProductGridView extends StatelessWidget {
           Product product = items[index];
           return OpenContainerWrapper(
             product: product,
-            child: GridTile(
-              header: _gridItemHeader(product, index),
-              footer: _gridItemFooter(product, context),
-              child: _gridItemBody(product),
+            child: Padding(
+              padding: EdgeInsets.only(bottom: 4),
+              child: GridTile(
+                header: _gridItemHeader(product, index),
+                footer: _gridItemFooter(product, context),
+                child: _gridItemBody(product),
+              ),
             ),
           );
         },

@@ -54,7 +54,7 @@ class CartScreen extends StatelessWidget {
                       child: Padding(
                         padding: const EdgeInsets.all(5),
                         child: Image.asset(
-                          product.images[0],
+                          product.images,
                           width: 100,
                           height: 90,
                         ),
@@ -66,30 +66,28 @@ class CartScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      product.name.nextLine,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
+                      product.name,
                       style: const TextStyle(
                         fontWeight: FontWeight.w600,
-                        fontSize: 15,
+                        fontSize: 14,
                       ),
                     ),
-                    const SizedBox(height: 5),
-                    Text(
-                      controller.getCurrentSize(product),
-                      style: TextStyle(
-                        color: Colors.black.withOpacity(0.5),
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
+                    // const SizedBox(height: 5),
+                    // Text(
+                    //   controller.getCurrentSize(product),
+                    //   style: TextStyle(
+                    //     color: Colors.black.withOpacity(0.5),
+                    //     fontWeight: FontWeight.w400,
+                    //   ),
+                    // ),
                     const SizedBox(height: 5),
                     Text(
                       controller.isPriceOff(product)
-                          ? "\$${product.off}"
-                          : "\$${product.price}",
+                          ? "Rp${product.off}"
+                          : "Rp${product.price}",
                       style: const TextStyle(
                         fontWeight: FontWeight.w900,
-                        fontSize: 23,
+                        fontSize: 16,
                       ),
                     ),
                   ],
@@ -130,9 +128,13 @@ class CartScreen extends StatelessWidget {
                       ),
                       IconButton(
                         splashRadius: 10.0,
-                        onPressed: () =>
-                            controller.increaseItemQuantity(product),
-                        icon: const Icon(Icons.add, color: Color(0xFF1750ac)),
+                        onPressed: () => controller.increaseItemQuantity(
+                          product,
+                        ),
+                        icon: const Icon(
+                          Icons.add,
+                          color: Color(0xFF1750ac),
+                        ),
                       ),
                     ],
                   ),
@@ -160,7 +162,7 @@ class CartScreen extends StatelessWidget {
             () {
               return AnimatedSwitcherWrapper(
                 child: Text(
-                  "\$${controller.totalPrice.value}",
+                  "Rp${controller.totalPrice.value}",
                   key: ValueKey<int>(controller.totalPrice.value),
                   style: const TextStyle(
                     fontSize: 25,

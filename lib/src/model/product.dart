@@ -1,16 +1,16 @@
-import 'package:e_commerce/src/model/product_size_type.dart';
+// import 'package:e_commerce/src/model/product_size_type.dart';
 
-enum ProductType { all, watch, mobile, headphone, tablet, tv }
+enum ProductType { all, beans, coffeebased, noncoffee, equipment }
 
 class Product {
-  String name;
+  String name, images;
   int price;
   int? off;
   String about;
   bool isAvailable;
-  ProductSizeType? sizes;
+  // ProductSizeType? sizes;
   int _quantity;
-  List<String> images;
+  // List<String> images;
   bool isFavorite;
   double rating;
   ProductType type;
@@ -26,7 +26,7 @@ class Product {
     required this.price,
     required this.about,
     required this.isAvailable,
-    this.sizes,
+    // this.sizes,
     required this.off,
     required int quantity,
     required this.images,

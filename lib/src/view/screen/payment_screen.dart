@@ -1,11 +1,28 @@
 import 'package:e_commerce/core/app_color.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class PaymentScreen extends StatelessWidget {
   const PaymentScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    void numberCafe() async {
+      const message = 'Halo, Kakak. Saya sudah melakukan pembayaran berupa ';
+
+      final encodedMessage = Uri.encodeComponent(message);
+      final Uri whatsappUrl =
+          Uri.parse('https://wa.me/6287881646648/?text=$encodedMessage');
+
+      if (await launchUrl(whatsappUrl)) {
+        await launchUrl(whatsappUrl);
+      } else {
+        print(
+          'Tidak dapat membuka WhatsApp. Pastikan aplikasi WhatsApp terpasang di perangkat Anda.',
+        );
+      }
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -49,7 +66,9 @@ class PaymentScreen extends StatelessWidget {
                     padding: const EdgeInsets.all(20),
                     backgroundColor: AppColor.primary,
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    numberCafe();
+                  },
                   child: const Text(
                     "Confirm",
                     style: TextStyle(
