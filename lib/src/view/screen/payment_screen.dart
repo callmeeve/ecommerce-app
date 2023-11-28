@@ -17,9 +17,7 @@ class PaymentScreen extends StatelessWidget {
       if (await launchUrl(whatsappUrl)) {
         await launchUrl(whatsappUrl);
       } else {
-        print(
-          'Tidak dapat membuka WhatsApp. Pastikan aplikasi WhatsApp terpasang di perangkat Anda.',
-        );
+        throw 'Could not launch $whatsappUrl';
       }
     }
 

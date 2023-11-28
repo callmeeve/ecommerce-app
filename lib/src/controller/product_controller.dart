@@ -63,9 +63,6 @@ class ProductController extends GetxController {
         'Added to cart: ${product.name}, Quantity: ${product.quantity}');
 
     // Print debug information
-    print('Added to cart: ${product.name}, Quantity: ${product.quantity}');
-    print('Cart products: $cartProducts');
-    print('Total price after adding: ${totalPrice.value}');
   }
 
   void increaseItemQuantity(Product product) {

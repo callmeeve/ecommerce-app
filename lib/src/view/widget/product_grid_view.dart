@@ -144,7 +144,7 @@ class ProductGridView extends StatelessWidget {
           return OpenContainerWrapper(
             product: product,
             child: Padding(
-              padding: EdgeInsets.only(bottom: 4),
+              padding: const EdgeInsets.only(bottom: 4),
               child: GridTile(
                 header: _gridItemHeader(product, index),
                 footer: _gridItemFooter(product, context),
